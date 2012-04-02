@@ -35,6 +35,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'mileszs/ack.vim'
 Bundle 'sjl/badwolf'
+Bundle 'lukaszb/vim-web-indent'
 " }}}
 
 " Default Options {{{
