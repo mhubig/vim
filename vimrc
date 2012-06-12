@@ -22,7 +22,6 @@ Bundle 'tpope/vim-unimpaired'
 " NerdTree and stuff
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
 
 " Python Bundles
 Bundle 'vim-scripts/pep8.git'
@@ -34,8 +33,10 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'mileszs/ack.vim'
-Bundle 'sjl/badwolf'
 Bundle 'lukaszb/vim-web-indent'
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Bundle 'ervandew/supertab'
+Bundle 'altercation/vim-colors-solarized.git'
 " }}}
 
 " Default Options {{{
@@ -56,9 +57,6 @@ set visualbell
 
 " General Settings {{{
 
-" Enable syntax highlighting by default
-syntax on
-
 " OPTIONAL: This enables automatic indentation as you type.
 filetype indent on
 
@@ -66,8 +64,12 @@ filetype indent on
 " script when you open a file.
 filetype plugin on
 
+" Enable syntax highlighting by default
+syntax on
+set background=light
+
 " The colorscheme to use
-colorscheme badwolf 
+colorscheme solarized
 
 " Uncomment the following to have Vim jump to the last position
 " when reopening a file 
