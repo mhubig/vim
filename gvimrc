@@ -18,7 +18,7 @@ if has("unix")
         set columns=94
         set lines=40
     elseif s:uname == "Linux\n" 
-        set guifont=Ubuntu Mono:h12
+        set guifont="Ubuntu Mono:h12"
         set columns=100
         set lines=40
     endif
