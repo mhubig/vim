@@ -52,7 +52,7 @@ set nobackup
 set nowritebackup
 set ruler
 set showcmd
-set visualbell
+set novisualbell
 " }}}
 
 " General Settings {{{
@@ -69,6 +69,7 @@ syntax on
 set background=light
 
 " The colorscheme to use
+set t_Co=16
 colorscheme solarized
 
 " Uncomment the following to have Vim jump to the last position

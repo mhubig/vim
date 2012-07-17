@@ -1,4 +1,5 @@
-set guifont=Monaco:h12
+set background=light
+set guifont="Ubuntu Mono:h12"
 set guioptions-=T
 set guioptions-=r
 set guioptions-=l
