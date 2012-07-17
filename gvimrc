@@ -10,6 +10,11 @@ set guioptions-=r
 set guioptions-=l
 set guioptions-=b
 
+" Disable Beeping and blinking on input errors
+set noerrorbells
+set visualbell
+set t_vb=
+
 " Set the font and size depending on the OS
 if has("unix")
     let s:uname = system("uname")
