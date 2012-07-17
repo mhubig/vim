@@ -53,6 +53,9 @@ set nowritebackup
 set ruler
 set showcmd
 
+" Enable mouse in console vim
+set mouse=a
+
 " Disable Beeping and blinking on input errors
 set noerrorbells
 set visualbell
