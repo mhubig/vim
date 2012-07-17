@@ -1,6 +1,7 @@
 ## About
 
-This is the small ~/.vimrc file I use on my Mac. Use it at your own risk.
+This are the small ~/.vimrc and ~/.gvimrc files I use on Mac and Linux.
+Use at your own risk.
 
 ## Quick start
 
