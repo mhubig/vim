@@ -1,4 +1,4 @@
-" ~/.vimrc
+" ~/.vim/vimrc
 " Author: Markus Hubig <mhubig@gmail.com>
 " Source: https://github.com/mhubig/vim
 " 
@@ -52,7 +52,12 @@ set nobackup
 set nowritebackup
 set ruler
 set showcmd
-set novisualbell
+
+" Disable Beeping and blinking on input errors
+set noerrorbells
+set visualbell
+set t_vb=
+
 " }}}
 
 " General Settings {{{
