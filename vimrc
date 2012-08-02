@@ -35,18 +35,17 @@ Bundle 'FuzzyFinder'
 Bundle 'mileszs/ack.vim'
 Bundle 'lukaszb/vim-web-indent'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'ervandew/supertab'
 Bundle 'altercation/vim-colors-solarized.git'
 " }}}
 
 " Default Options {{{
 set nocompatible
-set expandtab
+set noexpandtab
 set copyindent
 set textwidth=79
 set tabstop=8
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=8
+set shiftwidth=8
 set autoindent
 set nobackup
 set nowritebackup
