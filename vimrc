@@ -1,7 +1,6 @@
 " ~/.vim/vimrc
 " Author: Markus Hubig <mhubig@gmail.com>
 " Source: https://github.com/mhubig/vim
-" 
 
 " Vundle Stuff {{{
 set nocompatible
@@ -22,6 +21,7 @@ Bundle 'tpope/vim-unimpaired'
 " NerdTree and stuff
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'wincent/Command-T'
 
 " Python Bundles
 Bundle 'vim-scripts/pep8.git'
@@ -40,6 +40,7 @@ Bundle 'altercation/vim-colors-solarized.git'
 
 " Default Options {{{
 set nocompatible
+set hidden
 set noexpandtab
 set copyindent
 set textwidth=79
@@ -85,6 +86,13 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") 
     \| exe "normal g'\"" | endif 
 endif
+" }}}
+
+" General Key Mappings {{{
+
+" change the mapleader from \ to ,
+let mapleader=","
+
 " }}}
 
 " Folding Settigs {{{
