@@ -89,6 +89,11 @@ if has("autocmd")
     \| exe "normal g'\"" | endif 
 endif
 
+" Mark the eightieth column so I know when to do a linebreak!
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
+
 " This line will make Vim set out tab characters, trailing whitespace and
 " invisible spaces visually, and additionally use the # sign at the end of
 " lines to mark lines that extend off-screen. For more info, see :h listchars.
