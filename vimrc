@@ -45,6 +45,12 @@ Bundle 'lukaszb/vim-web-indent'
 " Open Pydoc stuff in a vspli window
 let g:pydoc_open_cmd = 'vsplit'
 
+if has('mac')
+  let g:ackprg="ack -H --nocolor --nogroup --column"
+elseif has('unix')
+  let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+endif
+
 " }}}
 
 " Default Options {{{
