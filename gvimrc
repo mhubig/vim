@@ -20,7 +20,7 @@ if has("unix")
     let s:uname = system("uname")
     if s:uname == "Darwin\n"
         set guifont=Monaco:h12
-        set columns=94
+        set columns=82
         set lines=40
     elseif s:uname == "Linux\n" 
         set guifont="Ubuntu Mono:h12"
