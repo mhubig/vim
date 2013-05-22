@@ -17,6 +17,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-markdown'
 
 " The famose solarized color theme
 Bundle 'altercation/vim-colors-solarized.git'
