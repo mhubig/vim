@@ -39,15 +39,39 @@ Bundle 'mileszs/ack.vim'
 
 " Indentitation for javascript and html
 Bundle 'lukaszb/vim-web-indent'
+
+" vim-airline statusline
+Bundle 'bling/vim-airline'
+
+" align at some symbol
+Bundle 'vim-scripts/Align'
+
 " }}}
 
 " {{{ Bundle settings
+
+" Enable vim-airline
+let g:airline_exclude_filenames = []
+let g:airline_powerline_fonts = 0
+let g:airline_enable_fugitive = 1
+let g:airline_theme = 'solarized'
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_linecolumn_prefix = '␊ '
+let g:airline_linecolumn_prefix = '␤ '
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_fugitive_prefix = '⎇ '
+let g:airline_paste_symbol = 'ρ'
+let g:airline_paste_symbol = 'Þ'
+let g:airline_paste_symbol = '∥'
 
 " Open Pydoc stuff in a vspli window
 let g:pydoc_open_cmd = 'vsplit'
 
 if has('macunix')
-  let g:ackprg="ack -H --nocolor --nogroup --column"
+  let g:ackprg = 'ag --nogroup --column'
 elseif has('unix')
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 endif
@@ -68,6 +92,7 @@ set nobackup
 set nowritebackup
 set ruler
 set showcmd
+set clipboard=unnamed
 
 " Enable mouse in console vim
 set mouse=a
@@ -90,10 +115,10 @@ set t_Co=16
 colorscheme solarized
 
 " Uncomment the following to have Vim jump to the last position
-" when reopening a file 
-if has("autocmd") 
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") 
-    \| exe "normal g'\"" | endif 
+" when reopening a file
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
 endif
 
 " Mark the eightieth column so I know when to do a linebreak!
@@ -117,6 +142,16 @@ set pastetoggle=<F2>
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
 nmap Q gqap
+
+map <leader>l :Align 
+nmap <leader>a :Ack 
+nmap <leader>b :CommandTBuffer<CR>
+nmap <leader>d :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
+nmap <leader>t :CommandT<CR>
+nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
+nmap <leader>] :TagbarToggle<CR>
+nmap <leader><space> :call whitespace#strip_trailing()<CR>
 
 " }}}
 
@@ -156,8 +191,8 @@ vnoremap <Space> za
 set undodir=~/.vim/tmp/undo//     " undo files
 set backupdir=~/.vim/tmp/backup// " backups
 set directory=~/.vim/tmp/swap//   " swap files
-set backup 
-set noswapfile 
+set backup
+set noswapfile
 " }}}
 
 " vim:set ft=vim et tw=78 sw=2:
