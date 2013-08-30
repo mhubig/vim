@@ -195,4 +195,8 @@ set backup
 set noswapfile
 " }}}
 
+" Source the abbreviations file {{{
+source ~/.vim/abbreviations.vim
+" }}}
+
 " vim:set ft=vim et tw=78 sw=2:
