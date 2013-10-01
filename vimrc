@@ -39,12 +39,20 @@ Bundle 'mileszs/ack.vim'
 
 " Indentitation for javascript and html
 Bundle 'lukaszb/vim-web-indent'
+Bundle 'mattn/emmet-vim'
 
 " vim-airline statusline
 Bundle 'bling/vim-airline'
 
 " align at some symbol
 Bundle 'vim-scripts/Align'
+
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
+
+" REQUIRED: This makes vim invoke the matching ftplugin
+" script when you open a file.
+filetype plugin on
 
 " }}}
 
@@ -156,13 +164,6 @@ nmap <leader><space> :call whitespace#strip_trailing()<CR>
 " }}}
 
 " {{{ Filetype specific settings
-
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
-
-" REQUIRED: This makes vim invoke the matching ftplugin
-" script when you open a file.
-filetype plugin on
 
 if has('autocmd')
   " Setting ugly tab indenting for these filetypes
