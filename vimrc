@@ -165,13 +165,8 @@ nmap <leader><space> :call whitespace#strip_trailing()<CR>
 
 " {{{ Filetype specific settings
 
-if has('autocmd')
-  " Setting ugly tab indenting for these filetypes
-  autocmd filetype c,cpp,cs,java,objc set noexpandtab
-  autocmd filetype c,cpp,cs,java,objc set tabstop=8
-  autocmd filetype c,cpp,cs,java,objc set softtabstop=8
-  autocmd filetype c,cpp,cs,java,objc set shiftwidth=8
-endif
+" INFO: Put those settings into "after/ftplugin"!
+
 " }}}
 
 " Folding Settigs {{{
