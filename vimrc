@@ -89,6 +89,7 @@ set nowritebackup
 set ruler
 set showcmd
 set clipboard=unnamed
+set laststatus=2
 
 " Enable mouse in console vim
 set mouse=a
