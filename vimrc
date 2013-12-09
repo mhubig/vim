@@ -159,7 +159,6 @@ nmap <leader><space> :call whitespace#strip_trailing()<CR>
 " }}}
 
 " Folding Settigs {{{
-set foldlevelstart=0
 set foldlevel=99
 
 augroup vimrc
