@@ -19,10 +19,10 @@ set t_vb=
 if has("unix")
     let s:uname = system("uname")
     if s:uname == "Darwin\n"
-        set guifont=Monaco:h12
-        set columns=82
+        set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+        set columns=80
         set lines=40
-    elseif s:uname == "Linux\n" 
+    elseif s:uname == "Linux\n"
         set guifont="Ubuntu Mono:h12"
         set columns=100
         set lines=40
