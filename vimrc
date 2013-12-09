@@ -59,21 +59,9 @@ filetype plugin on
 " {{{ Bundle settings
 
 " Enable vim-airline
-let g:airline_exclude_filenames = []
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline_enable_fugitive = 1
 let g:airline_theme = 'solarized'
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_linecolumn_prefix = '␊ '
-let g:airline_linecolumn_prefix = '␤ '
-let g:airline_linecolumn_prefix = '¶ '
-let g:airline_fugitive_prefix = '⎇ '
-let g:airline_paste_symbol = 'ρ'
-let g:airline_paste_symbol = 'Þ'
-let g:airline_paste_symbol = '∥'
 
 " Open Pydoc stuff in a vspli window
 let g:pydoc_open_cmd = 'vsplit'
