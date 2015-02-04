@@ -6,57 +6,69 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " TPope's awsome stuff
-Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-vinegar'
 
 " The famose solarized color theme
 Bundle 'altercation/vim-colors-solarized.git'
 
-" NerdTree and file browsing
-Bundle 'scrooloose/nerdtree'
-Bundle 'wincent/Command-T'
-
-" Usefull Python Bundles
-Bundle 'nvie/vim-flake8'
-Bundle 'fs111/pydoc.vim'
-Bundle 'alfredodeza/pytest.vim'
-
-" Latex and ConTeX Bundles
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-
-" Search with :Ack instead grep
-Bundle 'mileszs/ack.vim'
-
 " Indentitation for javascript and html
 Bundle 'lukaszb/vim-web-indent'
-Bundle 'mattn/emmet-vim'
+Bundle 'mustache/vim-mustache-handlebars'
+
+" java stuff
+Bundle 'akhaku/vim-java-unused-imports'
 
 " vim-airline statusline
 Bundle 'bling/vim-airline'
 
-" align at some symbol
-Bundle 'vim-scripts/Align'
+" syntax file for Docker's Dockerfile
+Bundle "ekalinin/Dockerfile.vim"
 
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
+" Ruby for VIM
+Bundle 'vim-ruby/vim-ruby'
 
-" REQUIRED: This makes vim invoke the matching ftplugin
-" script when you open a file.
-filetype plugin on
+" ansible yaml
+Bundle 'chase/vim-ansible-yaml'
 
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins;
+"                     append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo;
+"                     append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins;
+"                     append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 " }}}
 
 " {{{ Bundle settings
+
+" Open files in new tab from nerdtree
+let g:nerdtree_tabs_open_on_gui_startup = 0
+"let NERDTreeMapOpenInTab='<ENTER>'
 
 " Enable vim-airline
 let g:airline_powerline_fonts = 1
@@ -71,6 +83,8 @@ if has('macunix')
 elseif has('unix')
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 endif
+
+
 
 " }}}
 
@@ -135,20 +149,6 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 " change the mapleader from \ to ,
 let mapleader=","
 set pastetoggle=<F2>
-
-" Use Q for formatting the current paragraph (or selection)
-vmap Q gq
-nmap Q gqap
-
-map <leader>l :Align 
-nmap <leader>a :Ack 
-nmap <leader>b :CommandTBuffer<CR>
-nmap <leader>d :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
-nmap <leader>t :CommandT<CR>
-nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
-nmap <leader>] :TagbarToggle<CR>
-nmap <leader><space> :call whitespace#strip_trailing()<CR>
 
 " }}}
 
