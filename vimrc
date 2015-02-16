@@ -2,65 +2,83 @@
 " Author: Markus Hubig <mhubig@gmail.com>
 " Source: https://github.com/mhubig/vim
 
-" Vundle Bundles {{{
-set nocompatible
-filetype off
+" NeoBundle Setup {{{
+if !1 | finish | endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if has('vim_starting')
+  if &compatible
+    set nocompatible
+  endif
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle.
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Shougo's mighty mojo
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin'  : 'make -f make_cygwin.mak',
+\     'mac'     : 'make -f make_mac.mak',
+\     'linux'   : 'make',
+\     'unix'    : 'gmake',
+\    },
+\ }
+NeoBundle 'Shougo/unite.vim'
 
 " TPope's awsome stuff
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-vinegar'
+NeoBundle 'tpope/vim-sensible'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-vinegar'
 
 " The famose solarized color theme
-Bundle 'altercation/vim-colors-solarized.git'
+NeoBundle 'altercation/vim-colors-solarized.git'
 
 " Indentitation for javascript and html
-Bundle 'lukaszb/vim-web-indent'
-Bundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'lukaszb/vim-web-indent'
+NeoBundle 'mustache/vim-mustache-handlebars'
 
 " java stuff
-Bundle 'akhaku/vim-java-unused-imports'
+NeoBundle 'akhaku/vim-java-unused-imports'
 
 " vim-airline statusline
-Bundle 'bling/vim-airline'
+NeoBundle 'bling/vim-airline'
 
 " syntax file for Docker's Dockerfile
-Bundle "ekalinin/Dockerfile.vim"
+NeoBundle "ekalinin/Dockerfile.vim"
 
 " Ruby for VIM
-Bundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-ruby/vim-ruby'
 
 " ansible yaml
-Bundle 'chase/vim-ansible-yaml'
+NeoBundle 'chase/vim-ansible-yaml'
+
+" HN in Vim
+NeoBundle 'ryanss/vim-hackernews'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins;
-"                     append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo;
-"                     append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins;
-"                     append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
 " Put your non-Plugin stuff after this line
 " }}}
 
@@ -72,7 +90,6 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " Enable vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_enable_fugitive = 1
 let g:airline_theme = 'solarized'
 
 " Open Pydoc stuff in a vspli window
@@ -83,9 +100,6 @@ if has('macunix')
 elseif has('unix')
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 endif
-
-
-
 " }}}
 
 " Default Options {{{
