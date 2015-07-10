@@ -11,10 +11,10 @@ Use at your own risk.
     $ git clone https://github.com/mhubig/vim.git ~/.vim
     ```
 
-2. Clone [*Vundle*](https://raw.github.com/gmarik/vundle)
+2. Clone [*NeoBundle*](https://github.com/Shougo/neobundle.vim)
 
     ```
-    $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    $ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
     ```
 
 3. Create ~/.vimrc & ~/.gvimrc links
@@ -24,9 +24,5 @@ Use at your own risk.
     $ ln -s ~/.vim/gvimrc ~/.gvimrc
     ```
 
-4. Install the Vim Bundles with [*Vundle*](https://raw.github.com/gmarik/vundle)
-
-    ```
-    $ vim +BundleInstall +qall
-    ```
+4. Start Vim to install Bundles
 
