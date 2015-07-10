@@ -31,6 +31,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/vimfiler.vim'
 
 " TPope's awsome stuff
 NeoBundle 'tpope/vim-sensible'
@@ -66,8 +68,17 @@ NeoBundle 'vim-ruby/vim-ruby'
 " ansible yaml
 NeoBundle 'chase/vim-ansible-yaml'
 
-" HN in Vim
-NeoBundle 'ryanss/vim-hackernews'
+" Rename in Vim
+NeoBundle 'danro/rename.vim'
+
+" a tagbar
+NeoBundle 'majutsushi/tagbar'
+
+" syntax checking plugin
+"NeoBundle 'scrooloose/syntastic'
+
+" Syntax highlighting for qml
+NeoBundle 'crucerucalin/qml.vim'
 
 " All of your Plugins must be added before the following line
 call neobundle#end()
@@ -84,9 +95,31 @@ NeoBundleCheck
 
 " {{{ Bundle settings
 
-" Open files in new tab from nerdtree
-let g:nerdtree_tabs_open_on_gui_startup = 0
-"let NERDTreeMapOpenInTab='<ENTER>'
+" neocomplete stuff
+let g:neocomplete#enable_at_startup = 1
+
+" vimfiler settings
+:let g:vimfiler_as_default_explorer = 1
+
+" tagbar settings
+let g:tagbar_map_togglefold = "<Space>"
+let g:tagbar_autofocus = 1
+let g:tagbar_autoshowtag = 1
+let g:tagbar_sort = 0
+let g:tagbar_singleclick = 1
+
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_python_checkers = ['pylint']
 
 " Enable vim-airline
 let g:airline_powerline_fonts = 1
@@ -164,6 +197,10 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 let mapleader=","
 set pastetoggle=<F2>
 
+" Incrase/decrase windows size.
+nnoremap <silent> <C-W>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <C-W>- :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+
 " }}}
 
 " {{{ Filetype specific settings
@@ -181,8 +218,11 @@ augroup vimrc
 augroup END
 
 " Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
+noremap <Space> za
+
+" show the taggbar
+nmap <F8> :TagbarToggle<CR>
+
 " }}}
 
 " Backup & Swap Settigs {{{
