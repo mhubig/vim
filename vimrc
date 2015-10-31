@@ -31,10 +31,28 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/vimfiler.vim'
 
-" TPope's awsome stuff
+NeoBundle 'Shougo/neocomplete.vim'
+let g:neocomplete#enable_at_startup = 1
+
+NeoBundle 'Shougo/vimfiler.vim'
+:let g:vimfiler_as_default_explorer = 1
+
+" The famose solarized color theme
+NeoBundle 'altercation/vim-colors-solarized.git'
+
+" vim-airline statusline
+NeoBundle 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'solarized'
+let g:airline#extensions#tabline#enabled = 1
+
+" vim-ctrlp Fuzzy file, buffer, mru, tag, etc finder
+NeoBundle 'kien/ctrlp.vim'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPMixed'
+
+" TPope's awesome stuff
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-endwise'
@@ -46,8 +64,11 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
 
-" The famose solarized color theme
-NeoBundle 'altercation/vim-colors-solarized.git'
+" No-BS Python code folding for Vim
+NeoBundle 'tmhedberg/SimpylFold'
+let g:SimpylFold_docstring_preview = 1
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 
 " Indentitation for javascript and html
 NeoBundle 'lukaszb/vim-web-indent'
@@ -55,9 +76,6 @@ NeoBundle 'mustache/vim-mustache-handlebars'
 
 " java stuff
 NeoBundle 'akhaku/vim-java-unused-imports'
-
-" vim-airline statusline
-NeoBundle 'bling/vim-airline'
 
 " syntax file for Docker's Dockerfile
 NeoBundle "ekalinin/Dockerfile.vim"
@@ -70,12 +88,6 @@ NeoBundle 'chase/vim-ansible-yaml'
 
 " Rename in Vim
 NeoBundle 'danro/rename.vim'
-
-" a tagbar
-NeoBundle 'majutsushi/tagbar'
-
-" syntax checking plugin
-"NeoBundle 'scrooloose/syntastic'
 
 " Syntax highlighting for qml
 NeoBundle 'crucerucalin/qml.vim'
@@ -91,48 +103,6 @@ filetype plugin indent on
 NeoBundleCheck
 
 " Put your non-Plugin stuff after this line
-" }}}
-
-" {{{ Bundle settings
-
-" neocomplete stuff
-let g:neocomplete#enable_at_startup = 1
-
-" vimfiler settings
-:let g:vimfiler_as_default_explorer = 1
-
-" tagbar settings
-let g:tagbar_map_togglefold = "<Space>"
-let g:tagbar_autofocus = 1
-let g:tagbar_autoshowtag = 1
-let g:tagbar_sort = 0
-let g:tagbar_singleclick = 1
-
-" syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['standard']
-let g:syntastic_python_checkers = ['pylint']
-
-" Enable vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
-
-" Open Pydoc stuff in a vspli window
-let g:pydoc_open_cmd = 'vsplit'
-
-if has('macunix')
-  let g:ackprg = 'ag --nogroup --column'
-elseif has('unix')
-  let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-endif
 " }}}
 
 " Default Options {{{
