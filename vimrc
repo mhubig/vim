@@ -67,6 +67,16 @@ let g:SimpylFold_docstring_preview = 1
 autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 
+" Using the jedi autocompletion library for VIM.
+NeoBundle 'davidhalter/jedi-vim'
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-p>"
+let g:jedi#rename_command = "<leader>r"
+
 " Indentitation for javascript and html
 NeoBundle 'lukaszb/vim-web-indent'
 NeoBundle 'mustache/vim-mustache-handlebars'
