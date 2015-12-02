@@ -32,9 +32,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundle 'Shougo/unite.vim'
 
-NeoBundle 'Shougo/neocomplete.vim'
-let g:neocomplete#enable_at_startup = 1
-
 NeoBundle 'Shougo/vimfiler.vim'
 :let g:vimfiler_as_default_explorer = 1
 
