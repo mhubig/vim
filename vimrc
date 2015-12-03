@@ -2,112 +2,74 @@
 " Author: Markus Hubig <mhubig@gmail.com>
 " Source: https://github.com/mhubig/vim
 
-" NeoBundle Setup {{{
-if !1 | finish | endif
+call plug#begin('~/.vim/plugged')
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+" Unite and create user interfaces
+Plug 'Shougo/unite.vim'
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle.
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Shougo's mighty mojo
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin'  : 'make -f make_cygwin.mak',
-\     'mac'     : 'make -f make_mac.mak',
-\     'linux'   : 'make',
-\     'unix'    : 'gmake',
-\    },
-\ }
-NeoBundle 'Shougo/unite.vim'
-
-NeoBundle 'Shougo/vimfiler.vim'
+" Powerful file explorer
+Plug 'Shougo/vimfiler.vim'
 :let g:vimfiler_as_default_explorer = 1
 
-" The famose solarized color theme
-NeoBundle 'altercation/vim-colors-solarized.git'
+" Powerful shell
+Plug 'Shougo/vimshell.vim'
+
+" solarized color theme
+Plug 'altercation/vim-colors-solarized'
 
 " vim-airline statusline
-NeoBundle 'bling/vim-airline'
+Plug 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized'
 let g:airline#extensions#tabline#enabled = 1
 
 " vim-ctrlp Fuzzy file, buffer, mru, tag, etc finder
-NeoBundle 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
 " TPope's awesome stuff
-NeoBundle 'tpope/vim-sensible'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-vinegar'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 
 " No-BS Python code folding for Vim
-NeoBundle 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold'
 let g:SimpylFold_docstring_preview = 1
 autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 
-" Using the jedi autocompletion library for VIM.
-NeoBundle 'davidhalter/jedi-vim'
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-p>"
-let g:jedi#rename_command = "<leader>r"
-
 " Indentitation for javascript and html
-NeoBundle 'lukaszb/vim-web-indent'
-NeoBundle 'mustache/vim-mustache-handlebars'
+Plug 'lukaszb/vim-web-indent'
+Plug 'mustache/vim-mustache-handlebars'
 
 " java stuff
-NeoBundle 'akhaku/vim-java-unused-imports'
+Plug 'akhaku/vim-java-unused-imports'
 
 " syntax file for Docker's Dockerfile
-NeoBundle "ekalinin/Dockerfile.vim"
+Plug 'ekalinin/Dockerfile.vim'
 
 " Ruby for VIM
-NeoBundle 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby'
 
 " ansible yaml
-NeoBundle 'chase/vim-ansible-yaml'
+Plug 'chase/vim-ansible-yaml'
 
 " Rename in Vim
-NeoBundle 'danro/rename.vim'
+Plug 'danro/rename.vim'
 
 " Syntax highlighting for qml
-NeoBundle 'crucerucalin/qml.vim'
+Plug 'crucerucalin/qml.vim'
 
-" All of your Plugins must be added before the following line
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+" Add plugins to &runtimepath
+call plug#end()
 
 " Put your non-Plugin stuff after this line
 " }}}
