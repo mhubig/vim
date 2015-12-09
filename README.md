@@ -20,3 +20,8 @@ This are the small `vimrc` files I use on Mac and Linux. Use at your own risk ðŸ
 
 0. Start Vim and install the plugins with `:PlugInstall`
 
+## Update `vim-plug`
+
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
