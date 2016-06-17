@@ -59,6 +59,9 @@ Plug 'ekalinin/Dockerfile.vim'
 " Ruby for VIM
 Plug 'vim-ruby/vim-ruby'
 
+" Rust for Vim
+Plug 'rust-lang/rust.vim'
+
 " ansible yaml
 Plug 'chase/vim-ansible-yaml'
 
