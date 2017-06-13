@@ -14,14 +14,18 @@ Plug 'Shougo/vimfiler.vim'
 " Powerful shell
 Plug 'Shougo/vimshell.vim'
 
-" solarized color theme
-Plug 'altercation/vim-colors-solarized'
+" dracula color theme
+Plug 'dracula/vim'
 
-" vim-airline statusline
-Plug 'bling/vim-airline'
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
-let g:airline#extensions#tabline#enabled = 1
+" vim lightline & bufferline
+Plug 'itchyny/lightline.vim'
+Plug 'mgee/lightline-bufferline'
+let g:lightline = {
+      \ 'colorscheme'     : 'Dracula',
+      \ 'tabline'         : {'left': [['buffers']], 'right': [['close']]},
+      \ 'component_expand': {'buffers': 'lightline#bufferline#buffers'},
+      \ 'component_type'  : {'buffers': 'tabsel'},
+      \ }
 
 " vim-ctrlp Fuzzy file, buffer, mru, tag, etc finder
 Plug 'kien/ctrlp.vim'
@@ -93,6 +97,7 @@ set ruler
 set showcmd
 set clipboard=unnamed
 set laststatus=2
+set noshowmode
 
 " Enable mouse in console vim
 set mouse=a
@@ -108,22 +113,12 @@ set t_vb=
 
 " Enable syntax highlighting by default
 syntax on
-set background=light
-
-" The colorscheme to use
-set t_Co=16
-colorscheme solarized
 
 " Uncomment the following to have Vim jump to the last position
 " when reopening a file
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
-endif
-
-" Mark the eightieth column so I know when to do a linebreak!
-if exists('+colorcolumn')
-  set colorcolumn=80
 endif
 
 " This line will make Vim set out tab characters, trailing whitespace and
